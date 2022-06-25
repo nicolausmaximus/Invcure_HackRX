@@ -16,6 +16,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import os
 from database import *
+from plainRecognition import *
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -28,3 +29,8 @@ def authentication(request):
 
 def upload(request):
     return render(request, 'upload.html')
+
+@api_view(['POST'])
+def parseImage(request):
+    fetchText('S_2.png')
+    return Response({"message":"success"})
