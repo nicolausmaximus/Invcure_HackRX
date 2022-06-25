@@ -1,0 +1,1 @@
+web: gunicorn InvCure.wsgi --log-file -
