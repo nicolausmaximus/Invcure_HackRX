@@ -18,6 +18,7 @@ import os
 from database import *
 from plainRecognition import *
 from ner import *
+from metadata import *
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -33,6 +34,7 @@ def upload(request):
 
 @api_view(['POST'])
 def parseImage(request):
+<<<<<<< HEAD
     # extracted_text= fetchText('S_2.png')
     extracted_text= fetchText('S_1.jpg')
     # print(extracted_text)
@@ -47,3 +49,13 @@ def parseImage(request):
     # openaiNERItems(extracted_text)
     extractAll(extracted_text)
     return Response({"message":"success"})
+=======
+    if(metadatacheck('S_2.png')):
+        extracted_text= fetchText('S_2.png')
+        print(extracted_text)
+        NamedER(extracted_text)
+        return Response({"message":"success"})
+    else:
+        print("edited")
+        return render(request, 'edited.html')
+>>>>>>> 19a33bd (rebase)
