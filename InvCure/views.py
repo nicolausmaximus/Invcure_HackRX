@@ -25,3 +25,6 @@ def index(request):
 
 def authentication(request):
     return render(request, 'login_signup.html')
+
+def upload(request):
+    return render(request, 'upload.html')
