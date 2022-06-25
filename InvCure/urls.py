@@ -26,5 +26,6 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('authentication/', views.authentication, name = 'authentication'),
     path('upload/', views.upload, name = 'upload'),
+    path('result/', views.result, name = 'result'),
     path('parseImage', views.parseImage, name = 'parseImage'),
 ]

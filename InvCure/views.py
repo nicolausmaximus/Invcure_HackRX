@@ -31,6 +31,9 @@ def authentication(request):
 def upload(request):
     return render(request, 'upload.html')
 
+def result(request):
+    return render(request, 'result.html')
+
 @api_view(['POST'])
 def parseImage(request):
     # extracted_text= fetchText('S_2.png')
