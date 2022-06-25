@@ -17,6 +17,7 @@ from rest_framework.response import Response
 import os
 from database import *
 from plainRecognition import *
+from ner import *
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -32,5 +33,7 @@ def upload(request):
 
 @api_view(['POST'])
 def parseImage(request):
-    fetchText('S_2.png')
+    extracted_text= fetchText('S_2.png')
+    print(extracted_text)
+    NamedER(extracted_text)
     return Response({"message":"success"})

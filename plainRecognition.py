@@ -44,7 +44,8 @@ def fetchText(file_name):
         
     # plot_rgb(boxes)
     extracted_text = pytesseract.image_to_string(image)
-    print(extracted_text)
+    extracted=extracted_text
+    return extracted_text
 
 def get_acc(directory, path):
     font     = cv2.FONT_HERSHEY_SIMPLEX
@@ -216,5 +217,6 @@ def getText(directory, path):
 
             print(result)
             
-fetchText('S_2.png')
-getText('/','S_2.png')
+a= fetchText('S_2.png')
+print(a)
+# getText('/','S_2.png')
