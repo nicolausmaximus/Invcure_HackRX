@@ -20,6 +20,7 @@ from . import views
 from django.views.static import serve
 from django.conf import settings
 from django.urls import include
+from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,3 +30,5 @@ urlpatterns = [
     path('result/', views.result, name = 'result'),
     path('parseImage', views.parseImage, name = 'parseImage'),
 ]
+
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
