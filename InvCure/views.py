@@ -19,6 +19,7 @@ from database import *
 from plainRecognition import *
 from ner import *
 from metadata import *
+from gcp import *
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -37,11 +38,15 @@ def result(request):
 
 @api_view(['POST'])
 def parseImage(request):
-    if(metadatacheck('S_2.png')):
-        extracted_text= fetchText('S_2.png')
-        print(extracted_text)
-        NamedER(extracted_text)
-        return Response({"message":"success"})
-    else:
-        print("edited")
-        return render(request, 'edited.html')
+    # if(metadatacheck('S_2.png')):
+    extracted_text= fetchText('S_2.png')
+        # print(extracted_text)
+        # NamedER(extracted_text)
+    handwrittenText=detect_handwritten_ocr('S_3.jpg')
+    classifiedOCR= extractAll(extracted_text)
+    classifiedHandwritten= extractAll(handwrittenText)
+
+    return Response({"message":"success", "extracted_text":extracted_text, "classified_text":classifiedOCR, "handwritten_text":handwrittenText, "classified_handwritten":classifiedHandwritten})
+    # else:
+    #     print("edited")
+    #     return render(request, 'edited.html')

@@ -217,7 +217,7 @@ def getText(directory, path):
 
             print(result)
             
-a= fetchText('S_2.png')
+# a= fetchText('S_2.png')
 # getText('/','S_1.jpg')
 # print(a)
 # getText('/','S_2.png')
