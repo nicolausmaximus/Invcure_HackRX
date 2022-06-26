@@ -52,21 +52,21 @@ if (isAdvancedUpload) {
     reader.readAsText(file);
   });
 
-  // submit data
-  // e.preventDefault();
-  //
-  // var ajaxData = new FormData($form.get(0)); // get data from the Form
-  //
-  // if (droppedFiles){
-  //   // loop over dropped files
-  //   $.each( droppedFiles, function(i, file){
-  //     ajaxData.append( $input.attr('name'), file);
-  //   })
-  // }
+  submit data
+  e.preventDefault();
+  
+  var ajaxData = new FormData($form.get(0)); // get data from the Form
+  
+  if (droppedFiles){
+    // loop over dropped files
+    $.each( droppedFiles, function(_i, file){
+      ajaxData.append( $input.attr('name'), file);
+    })
+  }
 
-  // $.ajax({
-  //   // upload and ajax method goes here
-  // });
+  $.ajax({
+    // upload and ajax method goes here
+  });
 }
 
 // upload using Ajax
